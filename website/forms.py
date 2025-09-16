@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Record
+from .models import Customer, CallRecord
 class SignUpForm(UserCreationForm):
     email= forms.EmailField(label="", widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Email Address"}))
     first_name= forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"First Name"}))
@@ -29,7 +29,7 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].label = ''
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'	
 
-#create Add Record form
+#create Add Customer form
 class AddRecordForm(forms.ModelForm):
     first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name","class":"form-control"}),label="")
     last_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Last Name","class":"form-control"}),label="")
@@ -41,5 +41,14 @@ class AddRecordForm(forms.ModelForm):
     zipcode = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Zipcode","class":"form-control"}),label="")
 
     class Meta:
-        model = Record
+        model = Customer
         exclude = ("user",)
+
+
+#create upload audio form
+class AudioUploadForm(forms.ModelForm):
+    title = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"file name","class":"form-control"}),label="")
+
+    class Meta:
+        model = CallRecord        
+        fields = ('audio_file',)  
