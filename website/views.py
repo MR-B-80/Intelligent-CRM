@@ -94,7 +94,7 @@ def update_record(request, pk):
         
 def upload_audio_file(request, pk):
     customer = Customer.objects.get(id=pk)
-    client = genai.Client(api_key="AIzaSyAD7gYAnS6hs2Rf0d1S9xZf7Pmef5TsHl4")
+    client = genai.Client(api_key="GEMINI_API_KEY")
 
     if request.method == 'POST':
         form = AudioUploadForm(request.POST, request.FILES)
