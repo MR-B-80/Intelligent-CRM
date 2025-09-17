@@ -19,6 +19,7 @@ class CallRecord(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='calls')
     audio_file = models.FileField(upload_to='audio_files/')
     transcript = models.TextField(blank=True, null=True)
+    title = models.TextField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -51,4 +51,4 @@ class AudioUploadForm(forms.ModelForm):
 
     class Meta:
         model = CallRecord        
-        fields = ('audio_file',)  
+        fields = ('audio_file','title')  

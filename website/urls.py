@@ -13,4 +13,5 @@ urlpatterns = [
     path("add_record", views.add_record, name="add_record"),
     path("update_record/<int:pk>", views.update_record, name="update_record"),
     path("upload_audio_file/<int:pk>", views.upload_audio_file, name="upload_audio_file"),
+    path("suggestion/<int:pk>", views.suggestion, name="suggestion"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
