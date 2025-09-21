@@ -13,4 +13,18 @@ from django.core.asgi import get_asgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dcrm.settings")
 
+
+	# Determine the environment and load appropriate settings
+
+	# ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
+
+	# if ENVIRONMENT == 'production':
+
+	#     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project_name.settings.production')
+
+	# else:
+
+	#     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project_name.settings.development')
+
+	 
 application = get_asgi_application()

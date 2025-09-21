@@ -21,6 +21,7 @@ class CallRecord(models.Model):
     transcript = models.TextField(blank=True, null=True)
     title = models.TextField(blank=True, null=True)
     summary = models.TextField(blank=True, null=True)
+    suggestion = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

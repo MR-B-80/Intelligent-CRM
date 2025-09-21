@@ -1,29 +1,83 @@
+<!-- my page -->
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="col-md-6 offset-md-3">
-    <h1>register</h1>
-    <br/>
-      <form method="POST" action="">
-        {% csrf_token %}
-        {% if form.errors %}
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-               {% for field in form %}
-                    {% if field.errors %}
-                        {{ field.errors}}
+
+<div class="card o-hidden border-0 shadow-lg mx-5 mb-5">
+    <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+            <div class="col-lg-5 d-none d-lg-block bg-register-image" style="background-image: url('https://images.unsplash.com/photo-1758380742154-44738eb92832?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+            <div class="col-lg-7">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                    </div>
+                    {% if form.errors %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {% for field in form %}
+                                    {% if field.errors %}
+                                        {{ field.errors}}
+                                    {% endif %}
+                            {% endfor %}
+                        
+                            <strong>{{ message }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     {% endif %}
-               {% endfor %}
-               
-                <strong>{{ message }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <form class="user" method="POST" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="username" class="form-control form-control-user" id="exampleInputUsername"
+                                placeholder="Username">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="text" name="first_name" class="form-control form-control-user" id="exampleFirstName"
+                                    placeholder="First Name">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" name="last_name" class="form-control form-control-user" id="exampleLastName"
+                                    placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail"
+                                placeholder="Email Address">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input type="password" name="password1" class="form-control form-control-user"
+                                    id="exampleInputPassword" placeholder="Password">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" name="password2" class="form-control form-control-user"
+                                    id="exampleRepeatPassword" placeholder="Repeat Password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
+                        <!-- <a href="login.html" class="btn btn-primary btn-user btn-block">
+                            Register Account
+                        </a> -->
+                        <hr>
+                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                            <i class="fab fa-google fa-fw"></i> Register with Google
+                        </a>
+                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                            <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                        </a>
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                    </div>
+                    <div class="text-center">
+                        <a class="small" href="login.html">Already have an account? Login!</a>
+                    </div>
+                </div>
             </div>
-        {% endif %}
-
-        {{ form.as_p }}          
-        <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-
+        </div>
+    </div>
 </div>
-
 
 {% endblock %}
