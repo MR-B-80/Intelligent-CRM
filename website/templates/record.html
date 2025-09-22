@@ -20,8 +20,9 @@
     <strong>ID: </strong><a href="{% url 'record' customer_record.id %}">{{ customer_record.id }}</a>
   </div>
 </div> -->
-<div class="modal fade" id="ModalForSuggestion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+
+<!-- <div class="modal fade" id="ModalForSuggestion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
@@ -36,12 +37,18 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
 
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-  <a href="{% url 'home' %}" class="btn btn-primary mb-3">Back</a>
+  <a href="{% url 'home' %}" class="btn btn-secondary mb-3">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+    <span>
+      Back
+    </span>
+  </a>
   <button class="btn btn-success mb-3"  id="ModalForSuggestion_btn" >
     AI suggestion strategy
   </button>

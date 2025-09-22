@@ -164,13 +164,13 @@ def upload_audio_file(request, pk):
     calls = CallRecord.objects.filter(customer=customer)
     return render(request, 'upload_audio_file.html', {'customer': customer, 'form': form, 'calls': calls})
 
-
 def suggestion(request, pk):
     customer = Customer.objects.get(id=pk)
-    calls = CallRecord.objects.filter(customer=customer).values_list('summary', flat=True)
+    calls = CallRecord.objects.filter(customer=customer).order_by('-id').values_list('summary', flat=True)[:10]
     client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+        print("helo")
         suggestion_prompt = f"""
         You are acting as a professional marketing and sales advisor. I will provide you with a conversation between a user and a salesperson.
         Your tasks:  
@@ -182,12 +182,12 @@ def suggestion(request, pk):
 
         Conversation:  {calls}  
         """
-        suggestion = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=[suggestion_prompt],
-            config=types.GenerateContentConfig(
-                thinking_config=types.ThinkingConfig(thinking_budget=0)
-            ),
-        )
+        # suggestion = client.models.generate_content(
+        #     model="gemini-2.5-flash",
+        #     contents=[suggestion_prompt],
+        #     config=types.GenerateContentConfig(
+        #         thinking_config=types.ThinkingConfig(thinking_budget=0)
+        #     ),
+        # )
 
-        return JsonResponse({'suggestion': suggestion.text})
+        return JsonResponse({'suggestion': suggestion_prompt})

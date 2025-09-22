@@ -47,7 +47,7 @@
                                 {% if records %}
                                     {% for record in records %}
                                     <tr>
-                                        <td><a href="{% url 'record' record.id %}">{{ record.first_name }} {{ record.last_name }}</a></td>
+                                        <td>{{ record.first_name }} {{ record.last_name }}</td>
                                         <td>{{ record.email }}</td>
                                         <td>{{ record.phone }}</td>
                                         <td>{{ record.address }}</td>
@@ -57,9 +57,10 @@
                                         <td>{{ record.create_at }}</td>
                                         <td>{{ record.id }}</td>
                                         <td>
-                                            <a href="{% url 'upload_audio_file' record.id %}" class="btn btn-info">upload</a>
-                                            <a href="{% url 'delete_record' record.id %}" class="btn btn-danger">Delete</a>
-                                            <a href="{% url 'update_record' record.id %}" class="btn btn-primary">Update</a>
+                                            <a href="{% url 'update_record' record.id %}" class="btn btn-primary my-1 p-1"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M480-120q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q82 0 155.5 35T760-706v-94h80v240H600v-80h110q-41-56-101-88t-129-32q-117 0-198.5 81.5T200-480q0 117 81.5 198.5T480-200q105 0 183.5-68T756-440h82q-15 137-117.5 228.5T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg></a>
+                                            <a href="{% url 'upload_audio_file' record.id %}" class="btn btn-info my-1 p-1"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg></a>
+                                            <a href="{% url 'record' record.id %}" class="btn btn-info my-1 p-1"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M480-800v-80h400v80H480Zm0 160v-80h400v80H480Zm0 160v-80h400v80H480ZM758-80q-125 0-247-54.5T289-289Q189-389 134.5-511T80-758q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T347-346q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T630-350l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM201-560l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM201-560Zm358 358Z"/></svg></a>
+                                            <a href="{% url 'delete_record' record.id %}" class="btn btn-danger my-1 p-1"><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></a>
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -75,20 +76,6 @@
 
    
 {% else %}
-    <!-- <h1>Login</h1>
-    <br/>
-    <form method="POST" action="{% url 'home' %}">
-        {% csrf_token %}
-        <form>
-            <div class="mb-3">
-                <input type="text" class="form-control" name="username" placeholder="User Name" required>
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-    </form> -->
 
     {% include 'login.html' %}
    

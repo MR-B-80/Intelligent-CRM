@@ -1,13 +1,21 @@
+<!-- my page -->
 {% extends 'base.html' %}
 
 {% block content %}
 <div class="col-md-6 offset-md-3">
     <h1>Upload Audio File</h1>
     <br/>
+      
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form.as_p }}          
+        <a href="{% url 'home' %}" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+          <span>
+            Back
+          </span>
+        </a>
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>
     
