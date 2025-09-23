@@ -10,8 +10,8 @@ from google.genai import types
 import json
 import re
 
-def home2(request):
-    return render(request, "tables.html", {})
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)
     
 def home(request):
     records =  Customer.objects.all()
@@ -182,12 +182,12 @@ def suggestion(request, pk):
 
         Conversation:  {calls}  
         """
-        # suggestion = client.models.generate_content(
-        #     model="gemini-2.5-flash",
-        #     contents=[suggestion_prompt],
-        #     config=types.GenerateContentConfig(
-        #         thinking_config=types.ThinkingConfig(thinking_budget=0)
-        #     ),
-        # )
+        suggestion = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[suggestion_prompt],
+            config=types.GenerateContentConfig(
+                thinking_config=types.ThinkingConfig(thinking_budget=0)
+            ),
+        )
 
-        return JsonResponse({'suggestion': suggestion_prompt})
+        return JsonResponse({'suggestion': suggestion.text})

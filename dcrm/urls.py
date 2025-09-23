@@ -1,10 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
+from website import views
 
-
-# handler404 = 'views.custom_404'
+handler404 = 'website.views.custom_404'
 # handler500 = 'views.custom_500'
-
 
 
 
