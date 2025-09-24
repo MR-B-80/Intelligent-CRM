@@ -44,7 +44,7 @@ This project helps sales teams and businesses efficiently manage customer inform
 
 Contributions are welcome! Please fork this repository, create a feature branch, and submit a pull request.
 
-## 📊 Roadmap
+## TODO List
 
 ◻️Email & SMS integration   
 ◻️user profile & setting   
