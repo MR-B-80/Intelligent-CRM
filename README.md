@@ -1,6 +1,6 @@
 # 🏢 Intelligent CRM
 
-![GitHub stars](https://img.shields.io/github/stars/your-username/your-repo-name.svg?style=social)
+![GitHub stars](https://img.shields.io/github/stars/MR-B-80/Intelligent-CRM.svg?style=social)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)
 
