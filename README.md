@@ -11,7 +11,7 @@ A lightweight yet powerful **Customer Relationship Management (CRM)** system bui
 ## 📝 Table of Contents
 
 - [Features](#-features)
-- [Tech Stack](#tech-stack)
+- [Tech Stack](#-tech-stack)
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Contributing](#-contributing)
