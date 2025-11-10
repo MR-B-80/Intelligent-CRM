@@ -2,7 +2,7 @@
 
 ![GitHub stars](https://img.shields.io/github/stars/MR-B-80/Intelligent-CRM.svg?style=social)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)
+![Build Status](https://img.shields.io/badge/Build-Development-brightgreen)
 
 A lightweight yet powerful **Customer Relationship Management (CRM)** system built with **Django**. This project helps sales teams and businesses efficiently manage customer information, track call records, and gain **AI-powered insights** for better decision-decision making.
 
