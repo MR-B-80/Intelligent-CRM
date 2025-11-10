@@ -57,7 +57,7 @@ def register_user(request):
 def customer_record(request, pk):
     if request.user.is_authenticated:
         customer_record = Customer.objects.get(id=pk)
-        customer_calls = CallRecord.objects.filter(customer=customer_record).order_by('-id')
+        customer_calls = CallRecord.objects.filter(customer=customer_record).order_by('-created_at')
         return render(request, "record.html", {
             'customer_record':customer_record,
             'customer_calls':customer_calls
@@ -170,7 +170,6 @@ def suggestion(request, pk):
     client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
     if request.method == 'GET':
-        print("helo")
         suggestion_prompt = f"""
         You are acting as a professional marketing and sales advisor. I will provide you with a conversation between a user and a salesperson.
         Your tasks:  
